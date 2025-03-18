@@ -19,9 +19,7 @@ function ContextComponent({children}) {
                 let response = await fetch(API_URL);
                 if(!response.ok) throw Error("The List Data is not Recieved, Please reload!")
                 let data = await response.json()
-                setFetchError(null)
-                setGroceryItems(data);
-                setFilteredItems(data)
+                setFetchError(null);
             }catch(err){
                 setFetchError(err.message)
             }
