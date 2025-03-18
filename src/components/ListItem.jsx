@@ -25,7 +25,8 @@ function ListItem({groceryItem, index}) {
     let toggleCheck = groceryItems.map(groceryItem=>(
       groceryItem.id == id ? {...groceryItem, checkStatus: !groceryItem.checkStatus} : groceryItem
     ));
-    setGroceryItems(toggleCheck)
+    setGroceryItems(toggleCheck);
+    localStorage.setItem('groceryItems', JSON.stringify(toggleCheck));
     let itemToggled = toggleCheck.filter(item=> item.id == id);
     let patchOptions = {
       method: 'PATCH',
@@ -42,6 +43,7 @@ function ListItem({groceryItem, index}) {
   async function handleDelete(id){
     let deleteItem = groceryItems.filter((groceryItem)=> groceryItem.id !== id)
     setGroceryItems(deleteItem);
+    localStorage.setItem('groceryItems', JSON.stringify(deleteItem));
     let deleteOption = {
       method: 'DELETE'
     }

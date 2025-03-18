@@ -13,9 +13,8 @@ function Content() {
   return (
     <div
     className='flex justify-center'>
-        {fetchError && <p className='m-5 font-bold mt-14 text-red-600 font-Albert'>Error: {fetchError}</p>}
         {isLoading && <p style={{bgColor}}>Loading...</p>}
-        {!isLoading && !fetchError && 
+        {!isLoading && 
         <>
             {isPending ? 'Loading...' :
                 <>

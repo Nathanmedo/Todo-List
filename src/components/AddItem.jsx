@@ -26,6 +26,7 @@ function AddItem() {
         groceryName: newItemName
       }
       let newArray = [...groceryItems, newItem];
+      localStorage.setItem('groceryItems', JSON.stringify(newArray));
       setGroceryItems(newArray);
       let postOption = {
         method: 'POST',
