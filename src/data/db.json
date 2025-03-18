@@ -1,0 +1,34 @@
+{
+  "groceryItemsArray": [
+    {
+      "id": "1",
+      "checkStatus": true,
+      "groceryName": "orange"
+    },
+    {
+      "id": "5",
+      "checkStatus": true,
+      "groceryName": "vinegar"
+    },
+    {
+      "id": "6",
+      "checkStatus": true,
+      "groceryName": "ori"
+    },
+    {
+      "id": "7",
+      "checkStatus": true,
+      "groceryName": "input"
+    },
+    {
+      "id": "8",
+      "checkStatus": true,
+      "groceryName": "banamna"
+    },
+    {
+      "id": "9",
+      "checkStatus": true,
+      "groceryName": "oti"
+    }
+  ]
+}
