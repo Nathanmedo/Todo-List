@@ -6,10 +6,10 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function AddItem() {
 
-    const {newItemValue, setNewItemValue, bgColor, groceryItems, setGroceryItems, addInputRef, setFetchError, API_URL}= useAppcontext();
+    const {newItemValue, setNewItemValue, setFilteredItems, bgColor, groceryItems, setGroceryItems, addInputRef, setFetchError, API_URL}= useAppcontext();
 
 
-    let checkRep = groceryItems.some(groceryItem => (groceryItem.groceryName).toLowerCase() == newItemValue.toLowerCase());
+    let checkRep = groceryItems?.some(groceryItem => (groceryItem.groceryName).toLowerCase() == newItemValue.toLowerCase());
     function checkRepetition(){
       if(checkRep) {
         toast.info('You have this item Already')
@@ -19,15 +19,16 @@ function AddItem() {
 
 
     async function handleAddItem(newItemName){
-      let newId = groceryItems.length ? +groceryItems[groceryItems.length - 1].id + +"1" : "1";
+      let newId = groceryItems?.length ? +groceryItems[groceryItems.length - 1].id + +"1" : "1";
       let newItem = {
         id: newId.toString(),
         checkStatus: false,
         groceryName: newItemName
       }
       let newArray = [...groceryItems, newItem];
-      localStorage.setItem('groceryItems', JSON.stringify(newArray));
+      localStorage.setItem('grocery-Items', JSON.stringify(newArray));
       setGroceryItems(newArray);
+      setFilteredItems(newArray);
       let postOption = {
         method: 'POST',
         headers: {

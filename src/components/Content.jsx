@@ -18,7 +18,7 @@ function Content() {
         <>
             {isPending ? 'Loading...' :
                 <>
-                  {filteredItems.length ? (
+                  {filteredItems?.length ? (
                     <ul
                     className='items-grid'>
                         {filteredItems.map((filteredItem, index)=>(

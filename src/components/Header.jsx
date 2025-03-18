@@ -54,7 +54,7 @@ function Header({title}) {
                 id='items-counter'
                 className='flex items-center ml-3 mt-5 mb-5 w-39 gap-2 pl-3 pr-3 pt-1 pb-1 bg-white bg-opacity-30 text-white hover:bg-opacity-40 hover:cursor-pointer shadow-sm shadow-gray-500'>
                     <FaShoppingBag />
-                    {groceryItems.length > 0 ? groceryItems.length : 'No'} items left
+                    {groceryItems?.length > 0 ? groceryItems.length : 'No'} items left
                 </div>
         </div>
         <ToastContainer

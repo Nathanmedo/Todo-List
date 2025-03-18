@@ -8,7 +8,7 @@ import ApiRequest from '../ApiRequest';
 function ListItem({groceryItem, index}) {
 
   //destructuring the background color usestate
-  const {bgColor, groceryItems, setGroceryItems, API_URL, setFetchError} = useAppcontext();
+  const {bgColor, groceryItems, setGroceryItems, setFilteredItems, API_URL, setFetchError} = useAppcontext();
 
     //creating a hook for the items animation
   let itemsHook = useRef(null)
@@ -26,7 +26,8 @@ function ListItem({groceryItem, index}) {
       groceryItem.id == id ? {...groceryItem, checkStatus: !groceryItem.checkStatus} : groceryItem
     ));
     setGroceryItems(toggleCheck);
-    localStorage.setItem('groceryItems', JSON.stringify(toggleCheck));
+    setFilteredItems(toggleCheck)
+    localStorage.setItem('grocery-Items', JSON.stringify(toggleCheck));
     let itemToggled = toggleCheck.filter(item=> item.id == id);
     let patchOptions = {
       method: 'PATCH',
@@ -43,7 +44,8 @@ function ListItem({groceryItem, index}) {
   async function handleDelete(id){
     let deleteItem = groceryItems.filter((groceryItem)=> groceryItem.id !== id)
     setGroceryItems(deleteItem);
-    localStorage.setItem('groceryItems', JSON.stringify(deleteItem));
+    setFilteredItems(deleteItem);
+    localStorage.setItem('grocery-Items', JSON.stringify(deleteItem));
     let deleteOption = {
       method: 'DELETE'
     }

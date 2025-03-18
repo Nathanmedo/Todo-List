@@ -22,7 +22,6 @@ header img{
     position: absolute;
     border-radius: 50%;
     width: 100%;
-    
     height: 100%;
     background-image: url(assets/circle-check-solid.svg);
     opacity: 0;

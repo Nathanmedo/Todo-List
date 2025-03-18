@@ -9,10 +9,10 @@ const  appContextApi = React.createContext();
 
 function ContextComponent({children}) {
     const API_URL = 'http://localhost:3000/groceryItemsArray'
-    const[groceryItems, setGroceryItems]  = useState(JSON.parse(localStorage.getItem('groceryItems')));
+    const[groceryItems, setGroceryItems]  = useState(JSON.parse(localStorage.getItem('grocery-Items')));
     const[fetchError, setFetchError] = useState(null)
     const[isLoading, setIsLoading] = useState(true)
-    const[filteredItems, setFilteredItems] = useState(groceryItems);
+    const[filteredItems, setFilteredItems] = useState(localStorage.getItem("grocery-Items"));
     useEffect(()=>{
         async function fetchData(){
             try{
